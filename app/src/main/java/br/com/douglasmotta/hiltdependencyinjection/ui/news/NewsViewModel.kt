@@ -1,5 +1,6 @@
 package br.com.douglasmotta.hiltdependencyinjection.ui.news
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +10,7 @@ import br.com.douglasmotta.hiltdependencyinjection.data.model.NewsResult
 import br.com.douglasmotta.hiltdependencyinjection.data.repository.NewsRepositoryInterface
 import kotlinx.coroutines.launch
 
-class NewsViewModel(
+class NewsViewModel @ViewModelInject constructor(
     private val newsRepository: NewsRepositoryInterface
 ) : ViewModel() {
 

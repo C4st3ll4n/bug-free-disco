@@ -8,18 +8,24 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import br.com.douglasmotta.hiltdependencyinjection.R
+import br.com.douglasmotta.hiltdependencyinjection.data.WebApiAccess
 import br.com.douglasmotta.hiltdependencyinjection.data.repository.NewsFANApiDataSource
 import br.com.douglasmotta.hiltdependencyinjection.data.repository.NewsDbDataSource
 import br.com.douglasmotta.hiltdependencyinjection.data.repository.NewsRepository
+import br.com.douglasmotta.hiltdependencyinjection.data.repository.NewsRetrofitApiDataSource
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.main_fragment.*
 
+@AndroidEntryPoint
 class NewsFragment : Fragment(R.layout.main_fragment) {
 
+    private val viewModel: NewsViewModel by viewModels()
+/*
     private val viewModel by viewModels<NewsViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 val newsDbDataSource = NewsDbDataSource()
-                //val newsApiDataSource = NewsApiDataSource(WebApiAccess.newsApi)
+                //val newsApiDataSource = NewsRetrofitApiDataSource(WebApiAccess.newsApi)
                 val newsApiDataSource = NewsFANApiDataSource()
                 val newsRepository =
                     NewsRepository(requireContext(), newsDbDataSource, newsApiDataSource)
@@ -27,7 +33,7 @@ class NewsFragment : Fragment(R.layout.main_fragment) {
                 return NewsViewModel(newsRepository) as T
             }
         }
-    }
+    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

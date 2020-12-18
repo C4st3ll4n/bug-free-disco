@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'dagger.hilt.android.plugin'
 
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
 def apikeyProperties = new Properties()
@@ -64,6 +66,16 @@ dependencies {
 
     // Fast Android networking
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+    // HILT
+    def hilt_version = "2.28-alpha"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // HILT LIFECYCLE
+    def hilt_lifecycle_version = "1.0.0-alpha01"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle_version"
 
     // Others
     implementation "com.github.haroldadmin:NetworkResponseAdapter:4.0.1"

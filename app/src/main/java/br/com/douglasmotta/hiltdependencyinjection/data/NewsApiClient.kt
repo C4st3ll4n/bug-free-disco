@@ -1,6 +1,5 @@
 package br.com.douglasmotta.hiltdependencyinjection.data
 
-import br.com.douglasmotta.hiltdependencyinjection.BuildConfig
 import br.com.douglasmotta.hiltdependencyinjection.data.model.ErrorResponse
 import br.com.douglasmotta.hiltdependencyinjection.data.model.NewsResponse
 import com.haroldadmin.cnradapter.NetworkResponse
